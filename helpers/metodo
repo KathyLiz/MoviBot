@@ -1,0 +1,26 @@
+var MADconexion = function(){
+
+		var con = new wsM();
+		con.setAccion('WS_FUNCIONES_DEF.IMOVISTAR_LOGIN');
+		var args = {};
+		args.documentoID="984057918";		
+		args.clave="qwe123";
+		args.perfilUsuario="Numero";
+		console.log('Argumentos',args);
+		var session = {};
+		session.imei="1234567890";
+		session.version="2.2.28";
+		session.id_session="1811980";
+		console.log ('Session',session);
+		con.setArgumentos(args);
+		con.setSession(session);
+		//console.log("Objeto JSON: ",con.WS_FUNCIONES_DEF.IMOVISTAR_LOGIN);
+		con.OnResponde =function(ans){
+			// cuando mad responde ok
+		};
+		con.OnError =function(error){
+		// cuando hay un error
+		};
+		
+		con.consultarHttp();
+};

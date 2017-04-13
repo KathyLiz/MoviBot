@@ -1,0 +1,103 @@
+<html ng-app= "miApp">
+<head>
+<title> Log In </title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+  <script src ="app.js"></script>
+  <script src = "ws_miMovistar.js"></script>
+  <style>
+  h2 {
+    text-align: center;
+  }
+  
+  .button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  width: 100%;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+  
+
+  </style>
+</head>
+
+<body>
+<script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId: '400151793680658',
+          xfbml: true,
+          version: 'v2.6'
+        });
+      };
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+
+
+<form class="form-horizontal">
+<div class="container"  >
+  <h2 class="page-header" >Log In</h3>
+  
+	  <div class="fb-send-to-messenger" 
+        messenger_app_id='400151793680658'
+        page_id='EAAFr75mEwRIBAFsodBiKzQ9kfhqkRDOZBhx8QYaGsbBbsmbbFoH6fFYFtrK2qXEsw9cgusPvoLDna6NpUByjGLiIOyaDjbVde9x0Qsm0E9l8m7YZAvUZBwNYINfk4ZB7pmR7ZADBLQFIfNrEKBbBxHZAnS4XJZC5fljl1W8OH9YzAZDZD'
+        data-ref="kathy" 
+        color="blue" 
+        size="standard" >
+		<h5 class="text-center text-danger" >Es necesario que ingrese con sus <u>credenciales</u> de la aplicación <u>Mi Movistar</u></h5>
+		<label class="control-label col-sm-3" for="celular">Número Celular:</label>
+		<div class="col-sm-9">
+		  <div class="input-group">
+			<span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+			<input type="number" class="form-control" id="celular" placeholder="Ingrese su número Movistar" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="10">
+		  </div>
+		</div>
+	  </div>
+	
+	<div>
+    <label class="control-label col-sm-3" for="clave">Contraseña:</label>
+    <div class="col-sm-9">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+        <input type="password" class="form-control" id="clave" placeholder="Ingrese su contraseña">
+      </div>
+    </div>
+  </div>
+  
+	<p></p>
+  
+	<div>
+	<button id= "login" type="button" class="btn btn-success btn-lg active button" Onclick= "validar()" >Log In</button>
+	</div>
+    
+</div>
+</form>
+</body>
+</html>
