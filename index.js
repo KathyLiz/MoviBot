@@ -1,10 +1,18 @@
+const fs = require('fs');
+const https = require ('https');
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
-
 const verificationController = require('./controllers/verification');
 const messageWebhookController = require('./controllers/messageWebhook');
+
+var credentials ={
+cert: fs.readFileSync('./bot/certificado.crt','utf8'),
+key:fs.readFileSync('./bot/server.key','utf8'),
+ca:fs.readFileSync('./bot/certificado.ca','utf8'),
+passphrase:'antena10'
+};
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -38,7 +46,8 @@ app.get('*', function(req, res) {
 app.get('/', verificationController);
 app.post('/', messageWebhookController);
 
-app.listen(3000, () => console.log('El servidor está escuchando en el puerto 3000'));
+https.createServer(credentials,app)
+.listen(443, () => console.log('El servidor está escuchando en el puerto 443'));
 
 
 
