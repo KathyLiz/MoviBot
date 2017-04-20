@@ -1,0 +1,35 @@
+{
+  "name": "kty",
+  "version": "1.0.0",
+  "description": "bot para funcionar en movistar",
+  "main": "index.js",
+  "dependencies": {
+    "apiai": "^4.0.2",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "fb-messenger": "^1.1.0",
+    "mongodb": "^2.2.25",
+    "unirest": "^0.5.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KathyLiz/MoviBot.git"
+  },
+  "keywords": [
+    "bot",
+    "apiai",
+    "messenger",
+    "express",
+    "https"
+  ],
+  "author": "Katherine Hurtado",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KathyLiz/MoviBot/issues"
+  },
+  "homepage": "https://github.com/KathyLiz/MoviBot#readme"
+}

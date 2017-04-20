@@ -46,10 +46,10 @@ app.get('*', function(req, res) {
 app.get('/', verificationController);
 app.post('/', messageWebhookController);
 
-https.createServer(credentials,app)
-.listen(443, () => console.log('El servidor está escuchando en el puerto 443'));
+//https.createServer(credentials,app)
+//.listen(5000, () => console.log('El servidor está escuchando en el puerto 5000'));
 
-
+app.listen(3006,()=>console.log("Servidor escruchando en el puerto 3006"));
 
 
 

@@ -63,7 +63,7 @@ payloadFb.prototype.kathy={
                 "buttons": [
                     {
                         "type": "account_link",
-                        "url": ngrok
+                        "url":FRONTEND_URL+'/public/index.html/'
               }
             ]
           }
