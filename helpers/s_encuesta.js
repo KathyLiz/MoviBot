@@ -8,6 +8,14 @@ const DB_CONEXION = require('./conexionMongo');
 var valorAtencion = null;
 var valorServicio = null;
 
+const quickSalir = [
+	{
+		"content_type":"text",
+		"title":"Salir",
+		"payload":"salir"
+	}
+];
+
 const quickReplies = [
     {
         "content_type":"text",
@@ -51,19 +59,21 @@ s_encuesta.prototype.servicioEncuesta = function() {
     var senderId = this.senderId;
 
     if (action === 'encuesta' && query === 'Claro') {
-        messenger.sendQuickRepliesMessage(senderId,"¿Cómo calificarías la ATENCIÓN que ha recibido? toma en cuenta que 1 es Pésimo :( y 5 es Excelente :D ", quickReplies,"REGULAR", function (err, body) {
+        messenger.sendQuickRepliesMessage(senderId,"¿Cómo calificarías la ATENCIÓN que has recibido? toma en cuenta que 1 es Pésimo :( y 5 es Excelente :D ", quickReplies,"REGULAR", function (err, body) {
             if (err) return console.error(err)
         });
     } else if (action === 'respuesta-encuesta' && number) {
         if (parseInt(number,10) > 0 && parseInt(number,10) < 6 && valorAtencion === null) {
             valorAtencion = number;
-            messenger.sendQuickRepliesMessage(senderId,"¿Cómo calificarías el SERVICIO que ha recibido? toma en cuenta que 1 es Pésimo :( y 5 es Excelente :D ", quickReplies,"REGULAR", function (err, body) {
+            messenger.sendQuickRepliesMessage(senderId,"¿Cómo calificarías el SERVICIO que has recibido? toma en cuenta que 1 es Pésimo :( y 5 es Excelente :D ", quickReplies,"REGULAR", function (err, body) {
                 if (err) return console.error(err)
             });
         } else if (parseInt(number,10) > 0 && parseInt(number,10) < 6 && valorServicio === null) {
             valorServicio = number;
             //registroDB();
-            messenger.sendTextMessage(senderId,"Gracias por tu tiempo. Estaremos gustosos de ayudarte! :D ");
+	    messenger.sendQuickRepliesMessage(senderId,"Gracias por tu tiempo.Estaré gustoso de ayudarte! :)",quickSalir,"REGULAR",function(err,body){
+		if(err)return console.error(err)	
+	    });
             valorAtencion = null;
             valorServicio = null;
         } else {

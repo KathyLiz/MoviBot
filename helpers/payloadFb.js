@@ -5,9 +5,7 @@ var FBMessenger = require('fb-messenger');
 var messenger = new FBMessenger(FACEBOOK_ACCESS_TOKEN);
 
 const PAGE_ID ="1194773757216781";
-const ngrok="https://aaa350eb.ngrok.io";
-
-var FRONTEND_URL = process.env.BOT_FRONTEND_URL || 'https://localhost';
+const ngrok="https://bot.interlancompu.com";
 
 function payloadFb () {
  
@@ -54,20 +52,34 @@ payloadFb.prototype.quickRepliesMenu = [
 ];
 
 payloadFb.prototype.kathy={
-        "template_type": "generic",
-        "elements": [
+"template_type":"generic",
+"elements": [
+{
+	"title": "Servicios Movistar",
+	"image_url": "http://www.eleconomista.es/CanalPDA/files/Movistar+-logo1.jpg",
+	"subtitle": "Todos nuestros servicios al alcance de tu mano",
+	"buttons": [
+		{
+		"type":"account_link",
+		"url":ngrok
+		}
+	]
+}
+]
+};
+/*payloadFb.prototype.kathy={
+        template_type: "generic",
+        elements: [
             {
-                "title": "Servicios Movistar ",
-                "image_url": "http://www.eleconomista.es/CanalPDA/files/Movistar+-logo1.jpg",
-                "subtitle": "Todos nuestros servicios al alcance de tu mano",
-                "buttons": [
-                    {
-                        "type": "account_link",
-                        "url":FRONTEND_URL+'/public/index.html/'
-              }
-            ]
-          }
-        ]};
+                title: "Servicios Movistar ",
+                image_url: "http://www.eleconomista.es/CanalPDA/files/Movistar+-logo1.jpg",
+                subtitle:"Todos nuestros servicios al alcance de tu mano"},
+                buttons:[{
+                        type: "account_link",
+                        url:"https://bot.interlancompu.com"
+              	     }]
+             }
+        ]};*/
 
 payloadFb.prototype.sendTextMessage = function (senderId,text){
     var text1 = text;

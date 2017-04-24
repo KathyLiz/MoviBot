@@ -64,7 +64,7 @@ processMessage.prototype.procesarMensaje = function (login, celular, sender) {
             payload.sendTextMessage(senderId, roberto);
         } else if (response.result.action === 'saldo') {
           
-            console.log("EL ID DEL login",loginId);
+           console.log("EL ID DEL login",loginId);
            console.log("EL ID DEL PROCESS MESSAGE",senderId);
             if (senderId === loginId && login === true) {
                 consultarSaldo(senderId, roberto);
@@ -193,7 +193,8 @@ function enviarLogin(senderId){
     messenger.sendTextMessage(senderId, "Por favor, primero debes autenticarte", 'REGULAR', function (err, body) {
                     if (err) return console.error(err)
                     messenger.sendReceiptMessage(senderId, payload.kathy, 'REGULAR', function (err, body) {
-                        if (err) return console.error(err)
+                        if (err) return console.error("Error en el Login botones",err)
+			console.log("El body login",body)
                     });
                 });
 }
