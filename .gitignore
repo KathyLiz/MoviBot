@@ -36,3 +36,4 @@ helpers/ws_miMovistar.js
 helpers/ws_miMovistarNode.js
 helpers/ws_miMovistarUnirest.js
 helpers/beginLogin.js
+request_http.log
